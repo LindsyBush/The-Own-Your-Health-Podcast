@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Own Your Health Podcast</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="components/navbar.js"></script>
+    <script src="components/footer.js"></script>
+</head>
+<body class="bg-[#F9F5F0]">
+<custom-navbar></custom-navbar>
+    
+    <main class="min-h-screen">
+        <!-- Hero Section -->
+        <section class="relative h-screen flex items-center justify-center overflow-hidden">
+            <div class="absolute inset-0">
+                <img src="http://static.photos/wellness/1200x630/10" alt="Healthy lifestyle" class="w-full h-full object-cover opacity-90">
+                <div class="absolute inset-0 bg-[#3C2A21]/20"></div>
+</div>
+            <div class="relative z-10 text-center px-4">
+                <h1 class="text-5xl md:text-7xl font-bold text-[#F9F5F0] mb-6">Own Your Health</h1>
+                <p class="text-xl md:text-2xl text-[#F1E9E1] mb-8 max-w-2xl mx-auto">Empowering conversations about holistic wellness and personal health journeys</p>
+                <a href="#episodes" class="bg-[#A38B6D] hover:bg-[#8A7455] text-[#F9F5F0] px-8 py-3 rounded-full text-lg font-medium transition duration-300 inline-block">Listen Now</a>
+</div>
+        </section>
+
+        <!-- Episodes Section -->
+        <section id="episodes" class="py-20 px-4 bg-white">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-3xl md:text-4xl font-bold text-[#3C2A21] text-center mb-16">Latest Episodes</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                    <div class="bg-[#F1E9E1] rounded-xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-[1.02]">
+<img src="http://static.photos/wellness/640x360/15" alt="Nutrition episode" class="w-full h-64 object-cover">
+                        <div class="p-6">
+                            <div class="flex items-center mb-4">
+                                <div class="bg-[#D8C4B6] p-3 rounded-full mr-4">
+                                    <i data-feather="heart" class="text-[#5E4B3C]"></i>
+                                </div>
+                                <h3 class="text-xl font-bold text-[#3C2A21]">Nutrition Myths Debunked</h3>
+                            </div>
+                            <p class="text-[#5E4B3C] mb-4">Cutting through the noise about what really constitutes healthy eating.</p>
+<audio controls class="w-full">
+                                <source src="#" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                    </div>
+
+                    <div class="bg-blue-50 rounded-xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-[1.02]">
+                        <img src="http://static.photos/wellness/640x360/20" alt="Mental health episode" class="w-full h-64 object-cover">
+                        <div class="p-6">
+                            <div class="flex items-center mb-4">
+                                <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                    <i data-feather="activity" class="text-blue-800"></i>
+                                </div>
+                                <h3 class="text-xl font-bold text-blue-900">Mindfulness in Modern Life</h3>
+                            </div>
+                            <p class="text-blue-800 mb-4">Practical strategies for maintaining mental wellness in a busy world.</p>
+                            <audio controls class="w-full">
+                                <source src="#" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Testimonials -->
+        <section class="py-20 px-4 bg-[#E4D5C7]">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold text-[#3C2A21] text-center mb-16">What Listeners Say</h2>
+<div class="space-y-10">
+                    <div class="flex flex-col md:flex-row items-center bg-white rounded-xl p-6 shadow-md">
+                            <img src="http://static.photos/people/200x200/30" alt="Listener" class="w-24 h-24 rounded-full object-cover mb-4 md:mb-0 md:mr-6 border-4 border-[#D8C4B6]">
+<div>
+                            <p class="text-[#5E4B3C] mb-4 italic">"This podcast changed my approach to health. The episodes on gut health were particularly transformative for me."</p>
+                            <p class="font-bold text-[#3C2A21]">Sarah J.</p>
+                            <p class="text-[#8A7455]">Long-time listener</p>
+</div>
+                    </div>
+
+                    <div class="flex flex-col md:flex-row items-center bg-white rounded-xl p-6 shadow-md">
+                        <img src="http://static.photos/people/200x200/35" alt="Listener" class="w-24 h-24 rounded-full object-cover mb-4 md:mb-0 md:mr-6 border-4 border-blue-200">
+                        <div>
+                            <p class="text-blue-800 mb-4 italic">"Finally a health podcast that's science-backed but not intimidating. The hosts make complex topics accessible."</p>
+                            <p class="font-bold text-blue-900">Michael T.</p>
+                            <p class="text-blue-700">New subscriber</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Subscribe CTA -->
+        <section class="py-16 px-4 bg-[#8A7455] text-center">
+            <div class="max-w-2xl mx-auto">
+                <h2 class="text-3xl font-bold text-[#F9F5F0] mb-6">Join Our Wellness Community</h2>
+                <p class="text-[#F1E9E1] mb-8">Subscribe to get the latest episodes and exclusive health resources</p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="#" class="bg-[#F9F5F0] text-[#8A7455] px-6 py-3 rounded-full font-medium flex items-center gap-2">
+<i data-feather="play" class="w-5 h-5"></i> Apple Podcasts
+                    </a>
+                    <a href="#" class="bg-white text-blue-600 px-6 py-3 rounded-full font-medium flex items-center gap-2">
+                        <i data-feather="music" class="w-5 h-5"></i> Spotify
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <custom-footer></custom-footer>
+    
+    <script>
+        feather.replace();
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
