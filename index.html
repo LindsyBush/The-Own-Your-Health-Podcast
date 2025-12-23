@@ -1,27 +1,293 @@
-own-your-health/
-│
-├── app/
-│   ├── globals.css
-│   ├── layout.js
-│   ├── page.js
-│   ├── podcast/
-│   │   └── page.js
-│   ├── insurance/
-│   │   └── page.js
-│   ├── about/
-│   │   └── page.js
-│   ├── media/
-│   │   └── page.js
-│   ├── shop/
-│   │   └── page.js
-│   ├── contact/
-│   │   └── page.js
-│   └── components/
-│       ├── Navbar.js
-│       ├── Hero.js
-│       ├── Section.js
-│       ├── Footer.js
-│       └── Modal.js
-│
-├── package.json
-└── README.md
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Own Your Health Podcast</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+  <style>
+    /* ---- Global Warm Aesthetic ---- */
+    :root {
+      --cream: #F8F4EF;
+      --beige: #EAE3DC;
+      --tan: #D1C4B7;
+      --clay: #A18C7C;
+      --text: #3A322B;
+    }
+    body {
+      background-color: var(--cream);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      line-height: 1.7;
+    }
+    h1, h2, h3, h4 {
+      font-family: 'Playfair Display', serif;
+      color: var(--text);
+    }
+
+    nav {
+      background-color: var(--cream);
+      border-bottom: 1px solid var(--beige);
+      padding: 1.5rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    nav ul {
+      margin: 0;
+      padding: 0;
+    }
+
+    nav a {
+      color: var(--text);
+      text-decoration: none;
+      margin-left: 1rem;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      color: var(--clay);
+      transition: color 0.3s ease;
+    }
+
+    header.hero {
+      background: url('https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      color: white;
+      text-align: center;
+      padding: 8rem 2rem;
+      position: relative;
+    }
+
+    header.hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.3);
+    }
+
+    header.hero > div {
+      position: relative;
+      z-index: 2;
+    }
+
+    header.hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    header.hero p {
+      max-width: 600px;
+      margin: 0 auto 2rem;
+      font-size: 1.1rem;
+    }
+
+    header.hero button {
+      background: var(--clay);
+      color: white;
+      border: none;
+      padding: 0.9rem 1.6rem;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    header.hero button:hover {
+      background: var(--tan);
+      color: var(--text);
+    }
+
+    section {
+      padding: 4rem 2rem;
+    }
+
+    section:nth-of-type(even) {
+      background-color: var(--beige);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      align-items: center;
+    }
+
+    img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .cta {
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    footer {
+      background-color: var(--beige);
+      text-align: center;
+      padding: 3rem 0;
+      color: var(--text);
+    }
+
+    small a {
+      color: var(--clay);
+      text-decoration: none;
+    }
+
+    small a:hover {
+      text-decoration: underline;
+    }
+
+    /* ---- Modal ---- */
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+
+    .modal.show {
+      display: flex;
+    }
+
+    .modal-content {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      max-width: 500px;
+      text-align: center;
+    }
+
+    .modal-content h3 {
+      color: var(--clay);
+    }
+
+    .modal-content button {
+      margin-top: 1rem;
+      background: var(--clay);
+      color: white;
+      border: none;
+      padding: 0.7rem 1.3rem;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .modal-content button:hover {
+      background: var(--tan);
+      color: var(--text);
+    }
+
+    form input, form button {
+      border-radius: 5px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="container-fluid">
+    <ul><li><strong>Own Your Health</strong></li></ul>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#podcast">Podcast</a></li>
+      <li><a href="#episodes">Episodes</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#media">Media</a></li>
+      <li><a href="#shop">Shop</a></li>
+      <li><a href="#insurance">Insurance</a></li>
+      <li><a href="#contact" role="button">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <header id="home" class="hero">
+    <div>
+      <h1>Own Your Health. Own Your Future.</h1>
+      <p>The Own Your Health Podcast blends medicine, wellness, and modern creator culture — inspiring balance and ownership in your everyday life.</p>
+      <button onclick="document.getElementById('insuranceModal').classList.add('show')">Why Health Insurance Matters</button>
+    </div>
+  </header>
+
+  <!-- About / Podcast Section -->
+  <main class="container">
+    <section id="podcast">
+      <div class="grid">
+        <div>
+          <h2>The Podcast</h2>
+          <h3>Stories that empower your health journey</h3>
+          <p>Each episode of The Own Your Health Podcast brings together thought leaders, medical experts, and everyday people who are redefining what it means to live well. Discover how to take ownership of your physical, emotional, and financial wellbeing.</p>
+          <a href="#" style="color: var(--clay); font-weight: 600;">Listen on Spotify</a>
+        </div>
+        <div>
+          <img src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?auto=format&fit=crop&w=1000&q=80" alt="Podcast setup" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Episodes -->
+    <section id="episodes">
+      <h2>Recent Episodes</h2>
+      <div class="grid">
+        <article>
+          <img src="https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&w=600&q=80" alt="Guest speaker" />
+          <h4>Episode 12: Building Sustainable Wellness Habits</h4>
+          <p>With Dr. Wambui Njoroge — redefining wellness through small, consistent actions and cultural relevance.</p>
+        </article>
+        <article>
+          <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=600&q=80" alt="Mindfulness Guest" />
+          <h4>Episode 11: The Power of Mindful Rest</h4>
+          <p>Exploring how intentional stillness restores our energy and clarity in a fast-paced, digital world.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Insurance Section -->
+    <section id="insurance">
+      <div class="grid">
+        <div>
+          <img src="https://images.unsplash.com/photo-1605296867304-46d5465a13f1?auto=format&fit=crop&w=1000&q=80" alt="Wellness moment" />
+        </div>
+        <div>
+          <h2>Insurance & Wellness</h2>
+          <p>Health insurance isn’t just about emergencies — it’s about security, freedom, and peace of mind. We believe in making this knowledge accessible for young Africans taking charge of their future.</p>
+          <button>Learn More</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Subscribe -->
+    <section id="contact" aria-label="Subscribe">
+      <h2>Join Our Community</h2>
+      <p>Get updates, new episodes, and wellness insights directly to your inbox.</p>
+      <form class="grid">
+        <input type="text" id="firstname" name="firstname" placeholder="Your name" aria-label="First name" required />
+        <input type="email" id="email" name="email" placeholder="Email address" aria-label="Email" required />
+        <button type="submit" onclick="event.preventDefault()">Subscribe</button>
+      </form>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="container">
+    <small>
+      <a href="#">© 2025 The Own Your Health Podcast</a> • <a href="#">Privacy Policy</a>
+    </small>
+  </footer>
+
+  <!-- Insurance Modal -->
+  <div id="insuranceModal" class="modal">
+    <div class="modal-content">
+      <h3>Why Health Insurance Matters</h3>
+      <p>Health insurance isn’t about fear — it’s about empowerment and freedom. Learn how coverage supports your goals and protects your wellbeing.</p>
+      <button onclick="document.getElementById('insuranceModal').classList.remove('show')">Close</button>
+    </div>
+  </div>
+
+</body>
+</html>
