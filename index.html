@@ -10,6 +10,11 @@
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
     <script src="https://unpkg.com/feather-icons"></script>
     <script>
+       <section class="relative h-screen flex items-center justify-center bg-clay overflow-hidden">
+        <div class="absolute inset-0 bg-black/30 z-10"></div>
+        <!-- Image Carousel -->
+        <hero-section></hero-section>
+        <image-carousel></image-carousel>
       tailwind.config = {
         theme: {
           extend: {
@@ -26,15 +31,7 @@
     </script>
 </head>
 <body class="bg-ivory font-sans text-taupe">
-    <custom-navbar></custom-navbar>
-    
-    <!-- Hero Section -->
-    <section class="relative h-screen flex items-center justify-center bg-clay overflow-hidden">
-        <div class="absolute inset-0 bg-black/30 z-10"></div>
-        <!-- Image Carousel -->
-        <hero-section></hero-section>
-        <image-carousel></image-carousel>
-        
+    <custom-navbar></custom-navbar>       
         <div class="relative z-20 px-6 text-center max-w-4xl">
             <h1 class="text-5xl md:text-7xl font-serif font-bold text-ivory mb-6 leading-tight">
                 "The future is never guaranteed.<br>But care can be."
@@ -274,6 +271,7 @@ Hope alone does not guarantee continuity.</p>
     </script>
 </body>
 </html>
+
 
 
 
