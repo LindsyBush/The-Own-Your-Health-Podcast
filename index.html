@@ -17,34 +17,22 @@
         
         <!-- Image Carousel -->
         <image-carousel></image-carousel>
-        theme: {
-          extend: {
-            colors: {
-              sage: '#9CAF88',
-              parchment: '#F5F0E6',
-              clay: '#D4B483',
-              taupe: '#8B7D6B',
-              ivory: '#FFFDF7',
-            }
-          }
-        }
-      }
-    </script>
-</head>
-<body class="bg-ivory font-sans text-taupe">
-    <custom-navbar></custom-navbar>       
-        <div class="relative z-20 px-6 text-center max-w-4xl">
-            <h1 class="text-5xl md:text-7xl font-serif font-bold text-ivory mb-6 leading-tight">
-                "The future is never guaranteed.<br>But care can be."
-            </h1>
-            <p class="text-xl md:text-2xl text-ivory/90 mb-8 font-serif italic">
-                A doctor's reflection on loss, legacy, and protecting what matters most.
-            </p>
-            <a href="#essay" class="bg-sage hover:bg-sage/90 text-ivory font-medium py-3 px-8 rounded-full transition-all duration-300 inline-block">
-                Read This First
-            </a>
-        </div>
-    </section>
+        
+        <!-- Editorial Introduction -->
+<section class="editorial-section container-wide">
+            <editorial-header 
+                title="Health as a Lifestyle" 
+                subtitle="Where medicine, wellness, and modern culture intersect">
+            </editorial-header>
+            
+            <div class="editorial-text">
+                <p>The Own Your Health Podcast reimagines healthcare conversations for the modern African professional. 
+                We blend clinical expertise with lifestyle wisdom to help you navigate health in today's world.</p>
+                
+                <p>Each episode features candid conversations with doctors, wellness experts, and cultural commentators 
+                who understand the unique health challenges facing our generation.</p>
+            </div>
+        </section>
 
     <!-- Popup Modal (hidden by default) -->
     <div id="careModal" class="fixed inset-0 bg-black/50 z-50 hidden items-center justify-center p-4">
@@ -272,6 +260,7 @@ Hope alone does not guarantee continuity.</p>
     </script>
 </body>
 </html>
+
 
 
 
