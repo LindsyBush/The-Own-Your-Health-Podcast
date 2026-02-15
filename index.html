@@ -1,207 +1,604 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="The Own Your Health Podcast — medicine, mental health, legacy, and thoughtful living" />
-  <title>The Own Your Health Podcast | Dr. Linda Biomdo</title>
-
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://unpkg.com/feather-icons"></script>
-
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            primary: '#E8D5C0',
-            secondary: '#3A4F41',
-            accent: '#C4A287',
-            sage: '#9CAF88',
-            parchment: '#F5F0E6',
-            clay: '#D4B483',
-            taupe: '#8B7D6B',
-            ivory: '#FFFDF7',
-          },
-          fontFamily: {
-            serif: ['Playfair Display', 'serif'],
-            sans: ['Inter', 'sans-serif'],
-          },
-        },
-      },
-    }
-  </script>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Linda Biomdo | Medical Doctor & Insurance Advisor</title>
+    <meta name="description" content="Dr. Linda Biomdo - Medical Doctor and ICEA LION Insurance Agent. Protecting your health and wealth through expert medical advice and comprehensive insurance solutions.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        primary: {
+                            50: '#f6f5f0',
+                            100: '#e8e6dc',
+                            200: '#d4d0c0',
+                            300: '#b8b29a',
+                            400: '#9c9476',
+                            500: '#827a5a',
+                            600: '#6b6448',
+                            700: '#564f3a',
+                            800: '#474230',
+                            900: '#3d3929',
+                        },
+                        accent: {
+                            50: '#f0fdfa',
+                            100: '#ccfbf1',
+                            200: '#99f6e4',
+                            300: '#5eead4',
+                            400: '#2dd4bf',
+                            500: '#14b8a6',
+                            600: '#0d9488',
+                            700: '#0f766e',
+                            800: '#115e59',
+                            900: '#134e4a',
+                        },
+                        warm: {
+                            50: '#fafaf9',
+                            100: '#f5f5f4',
+                            200: '#e7e5e4',
+                            300: '#d6d3d1',
+                            400: '#a8a29e',
+                            500: '#78716c',
+                            600: '#57534e',
+                            700: '#44403c',
+                            800: '#292524',
+                            900: '#1c1917',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-text {
+            background: linear-gradient(135deg, #0d9488 0%, #14b8a6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero-pattern {
+            background-image: radial-gradient(circle at 1px 1px, #d6d3d1 1px, transparent 0);
+            background-size: 40px 40px;
+        }
+        .float-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        .modal-enter {
+            animation: modalEnter 0.3s ease-out forwards;
+        }
+        @keyframes modalEnter {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .slide-up {
+            animation: slideUp 0.6s ease-out forwards;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        @keyframes slideUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
 </head>
+<body class="font-sans text-warm-800 bg-warm-50 antialiased">
 
-<body class="bg-ivory text-secondary font-sans">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-warm-50/90 backdrop-blur-md border-b border-warm-200 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center space-x-2">
+                    <div class="w-10 h-10 bg-accent-600 rounded-full flex items-center justify-center text-white">
+                        <i data-lucide="heart-pulse" class="w-6 h-6"></i>
+                    </div>
+                    <div>
+                        <h1 class="font-serif text-xl font-bold text-warm-900">Dr. Linda Biomdo</h1>
+                        <p class="text-xs text-accent-700 font-medium">MD | Insurance Advisor</p>
+                    </div>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#about" class="text-warm-600 hover:text-accent-600 transition-colors font-medium">About</a>
+                    <a href="#services" class="text-warm-600 hover:text-accent-600 transition-colors font-medium">Services</a>
+                    <a href="#why-me" class="text-warm-600 hover:text-accent-600 transition-colors font-medium">Why Trust Me</a>
+                    <button onclick="openModal()" class="bg-accent-600 text-white px-6 py-2.5 rounded-full hover:bg-accent-700 transition-all transform hover:scale-105 font-medium shadow-lg shadow-accent-600/20">
+                        Free Consultation
+                    </button>
+                </div>
 
-  <!-- NAVBAR -->
-  <custom-navbar></custom-navbar>
-
-  <!-- HERO (IMAGE STYLE FROM SITE 1, TEXT FROM SITE 2) -->
-  <section class="relative h-screen flex items-center justify-center overflow-hidden">
-    <div class="absolute inset-0 bg-black/40 z-10"></div>
-
-    <img
-      src="http://static.photos/nature/1920x1080/42"
-      class="absolute inset-0 w-full h-full object-cover"
-      alt="Hero background"
-    />
-
-    <div class="relative z-20 text-center px-6 max-w-4xl">
-      <h1 class="text-5xl md:text-7xl font-serif font-bold text-white leading-tight mb-6">
-        “The future is never guaranteed.<br />But care can be.”
-      </h1>
-      <p class="text-xl md:text-2xl text-white/90 italic mb-10">
-        A doctor’s reflections on health, loss, legacy, and protecting what matters most.
-      </p>
-
-      <div class="flex gap-4 justify-center">
-        <a href="#conversations" class="bg-accent text-white px-8 py-3 rounded-full font-medium hover:bg-accent/90 transition">
-          Start Here
-        </a>
-        <a href="#podcast" class="border border-white text-white px-8 py-3 rounded-full hover:bg-white/10 transition">
-          Explore Episodes
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONVERSATIONS THAT HEAL (FROM SITE 1) -->
-  <section id="conversations" class="py-20 px-6 max-w-7xl mx-auto">
-    <div class="text-center mb-16">
-      <span class="text-accent font-medium tracking-wider">FEATURED CONVERSATION</span>
-      <h2 class="text-4xl font-serif font-bold mt-2 mb-4">Conversations That Heal</h2>
-      <p class="text-lg text-secondary/70 max-w-2xl mx-auto">
-        Where medicine meets lived experience — thoughtfully, honestly, humanely.
-      </p>
-    </div>
-
-    <div class="grid md:grid-cols-2 gap-12 items-center">
-      <div class="relative rounded-2xl overflow-hidden shadow-xl">
-        <img src="http://static.photos/medical/800x600/15" alt="Dr Kariuki" />
-        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-8">
-          <div>
-            <h3 class="text-2xl font-serif text-white">Dr. Amina Kariuki</h3>
-            <p class="text-white/80">Preventive Medicine Specialist</p>
-          </div>
+                <button class="md:hidden text-warm-800" onclick="toggleMobileMenu()">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
         </div>
-      </div>
 
-      <div>
-        <h3 class="text-3xl font-serif mb-4">
-          The Future of Preventive Healthcare in Africa
-        </h3>
-        <p class="text-secondary/70 mb-6">
-          A grounded conversation on foresight, prevention, and why proactive care is one of the most radical acts of self-respect.
-        </p>
-
-        <div class="flex gap-4">
-          <button class="flex items-center gap-2 bg-secondary text-white px-6 py-3 rounded-full">
-            <i data-feather="play"></i> Play Episode
-          </button>
-          <button class="flex items-center gap-2 border px-6 py-3 rounded-full">
-            <i data-feather="bookmark"></i> Save
-          </button>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-warm-50 border-t border-warm-200">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="#about" class="block px-3 py-2 text-warm-600 hover:text-accent-600 font-medium">About</a>
+                <a href="#services" class="block px-3 py-2 text-warm-600 hover:text-accent-600 font-medium">Services</a>
+                <a href="#why-me" class="block px-3 py-2 text-warm-600 hover:text-accent-600 font-medium">Why Trust Me</a>
+                <button onclick="openModal()" class="w-full mt-4 bg-accent-600 text-white px-6 py-3 rounded-full font-medium">Free Consultation</button>
+            </div>
         </div>
-      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden">
+        <div class="absolute inset-0 hero-pattern opacity-40"></div>
+        <div class="absolute top-20 right-0 w-96 h-96 bg-accent-100 rounded-full mix-blend-multiply filter blur-3xl opacity-30 float-animation"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-primary-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 float-animation" style="animation-delay: 2s;"></div>
+        
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="slide-up" style="animation-delay: 0.1s;">
+                    <div class="inline-flex items-center px-4 py-2 rounded-full bg-accent-50 text-accent-700 font-medium text-sm mb-6 border border-accent-100">
+                        <i data-lucide="shield-check" class="w-4 h-4 mr-2"></i>
+                        ICEA LION Authorized Agent
+                    </div>
+                    <h1 class="font-serif text-5xl lg:text-6xl font-bold text-warm-900 leading-tight mb-6">
+                        Protecting Your <span class="gradient-text">Health</span> & <span class="gradient-text">Wealth</span>
+                    </h1>
+                    <p class="text-lg text-warm-600 mb-8 leading-relaxed max-w-lg">
+                        As a Medical Doctor and Financial Advisor, I bridge the gap between healthcare and financial security. Let me help you safeguard your future with personalized insurance solutions.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button onclick="openModal()" class="bg-accent-600 text-white px-8 py-4 rounded-full hover:bg-accent-700 transition-all transform hover:scale-105 font-semibold shadow-xl shadow-accent-600/20 flex items-center justify-center">
+                            <span>Get Free Consultation</span>
+                            <i data-lucide="arrow-right" class="w-5 h-5 ml-2"></i>
+                        </button>
+                        <a href="#services" class="bg-white text-warm-800 px-8 py-4 rounded-full hover:bg-warm-100 transition-all border border-warm-300 font-semibold flex items-center justify-center">
+                            Explore Services
+                        </a>
+                    </div>
+                    
+                    <div class="mt-8 flex items-center space-x-6 text-sm text-warm-600">
+                        <div class="flex items-center">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-accent-600 mr-2"></i>
+                            <span> 100+ Interested Parties This Month</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i data-lucide="users" class="w-5 h-5 text-accent-600 mr-2"></i>
+                            <span>50+ Prospects In the Loop</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative slide-up" style="animation-delay: 0.3s;">
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl">
+                        <img src="https://static.photos/wellness/640x360/123" alt="Dr. Linda Biomdo - Medical Professional" class="w-full h-auto object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-warm-900/60 to-transparent"></div>
+                        <div class="absolute bottom-6 left-6 right-6 text-white">
+                            <p class="font-serif text-2xl font-bold">Dr. Linda Biomdo</p>
+                            <p class="text-warm-100">Medical Doctor | Insurance Specialist</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Floating Stats Card -->
+                    <div class="absolute -bottom-6 -left-6 bg-white rounded-xl shadow-xl p-6 border border-warm-100 max-w-xs hidden lg:block">
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-accent-50 p-3 rounded-lg">
+                                <i data-lucide="trending-up" class="w-6 h-6 text-accent-600"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm text-warm-600">Success Rate</p>
+                                <p class="text-2xl font-bold text-warm-900">100%</p>
+                                <p class="text-xs text-accent-600 mt-1">Client satisfaction this quarter</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Badges -->
+    <section class="py-12 bg-white border-y border-warm-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <p class="text-center text-warm-500 text-sm font-medium mb-8 uppercase tracking-wider">Trusted Medical Professional & ICEA LION Partner</p>
+            <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-70">
+                <div class="flex items-center space-x-2 text-warm-400">
+                    <i data-lucide="building-2" class="w-8 h-8"></i>
+                    <span class="font-serif text-lg font-bold">ICEA LION</span>
+                </div>
+                <div class="flex items-center space-x-2 text-warm-400">
+                    <i data-lucide="stethoscope" class="w-8 h-8"></i>
+                    <span class="font-serif text-lg font-bold">Medical Board Certified</span>
+                </div>
+                <div class="flex items-center space-x-2 text-warm-400">
+                    <i data-lucide="shield" class="w-8 h-8"></i>
+                    <span class="font-serif text-lg font-bold">Licensed Advisor</span>
+                </div>
+                <div class="flex items-center space-x-2 text-warm-400">
+                    <i data-lucide="award" class="w-8 h-8"></i>
+                    <span class="font-serif text-lg font-bold">TikTok Health Influencer</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 lg:py-32 bg-warm-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="order-2 lg:order-1">
+                    <div class="grid grid-cols-2 gap-4">
+                        <img src="https://static.photos/medical/320x240/456" alt="Medical Practice" class="rounded-2xl shadow-lg w-full h-64 object-cover">
+                        <img src="https://static.photos/office/320x240/789" alt="Financial Advisory" class="rounded-2xl shadow-lg w-full h-64 object-cover mt-8">
+                    </div>
+                </div>
+                
+                <div class="order-1 lg:order-2">
+                    <h2 class="font-serif text-4xl font-bold text-warm-900 mb-6">Where Medicine Meets Financial Security</h2>
+                    <p class="text-warm-600 mb-6 leading-relaxed">
+                        With years of experience as a Medical Doctor, I've witnessed firsthand how unexpected health crises can devastate families financially. This realization led me to become a licensed Insurance Agent with ICEA LION Group.
+                    </p>
+                    <p class="text-warm-600 mb-8 leading-relaxed">
+                        Through my daily TikTok content, I educate thousands on health matters while gently guiding them toward financial protection. My unique dual perspective ensures you get advice that considers both your physical wellbeing and financial future.
+                    </p>
+                    
+                    <div class="grid sm:grid-cols-2 gap-6">
+                        <div class="flex items-start space-x-3">
+                            <div class="bg-accent-100 p-2 rounded-lg flex-shrink-0">
+                                <i data-lucide="video" class="w-5 h-5 text-accent-700"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-warm-900">Daily Content</h4>
+                                <p class="text-sm text-warm-600">Educating on TikTok every day</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="bg-accent-100 p-2 rounded-lg flex-shrink-0">
+                                <i data-lucide="briefcase" class="w-5 h-5 text-accent-700"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-warm-900">100+ Clients</h4>
+                                <p class="text-sm text-warm-600">Signing up this month</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="bg-accent-100 p-2 rounded-lg flex-shrink-0">
+                                <i data-lucide="clock" class="w-5 h-5 text-accent-700"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-warm-900">Less than 24 hours</h4>
+                                <p class="text-sm text-warm-600">Average conversion time</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="bg-accent-100 p-2 rounded-lg flex-shrink-0">
+                                <i data-lucide="user-check" class="w-5 h-5 text-accent-700"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-warm-900">100+ Prospects</h4>
+                                <p class="text-sm text-warm-600">Currently in pipeline</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 lg:py-32 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="font-serif text-4xl font-bold text-warm-900 mb-4">Comprehensive Protection Plans</h2>
+                <p class="text-warm-600 text-lg">From education to retirement, I provide tailored insurance solutions that grow with you and your family.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Education Insurance -->
+                <div class="group bg-warm-50 rounded-2xl p-8 hover:shadow-xl transition-all duration-300 border border-warm-100 hover:border-accent-200">
+                    <div class="w-14 h-14 bg-accent-100 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="graduation-cap" class="w-7 h-7 text-accent-700"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-warm-900 mb-3">Education Insurance</h3>
+                    <p class="text-warm-600 mb-6 text-sm leading-relaxed">Secure your children's academic future. From primary school to university, ensure tuition fees are never a burden.</p>
+                    <button onclick="openModal()" class="text-accent-600 font-semibold text-sm flex items-center hover:text-accent-700 transition-colors">
+                        Learn More <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
+                    </button>
+                </div>
+
+                <!-- Life Insurance -->
+                <div class="group bg-warm-50 rounded-2xl p-8 hover:shadow-xl transition-all duration-300 border border-warm-100 hover:border-accent-200">
+                    <div class="w-14 h-14 bg-accent-100 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="heart" class="w-7 h-7 text-accent-700"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-warm-900 mb-3">Life Insurance</h3>
+                    <p class="text-warm-600 mb-6 text-sm leading-relaxed">Protect your loved ones financially in case of unexpected events. Leave a legacy, not a burden.</p>
+                    <button onclick="openModal()" class="text-accent-600 font-semibold text-sm flex items-center hover:text-accent-700 transition-colors">
+                        Learn More <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
+                    </button>
+                </div>
+
+                <!-- Health Insurance -->
+                <div class="group bg-warm-50 rounded-2xl p-8 hover:shadow-xl transition-all duration-300 border border-warm-100 hover:border-accent-200">
+                    <div class="w-14 h-14 bg-accent-100 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="activity" class="w-7 h-7 text-accent-700"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-warm-900 mb-3">Health Insurance</h3>
+                    <p class="text-warm-600 mb-6 text-sm leading-relaxed">As a doctor, I know what coverage you actually need. Comprehensive medical coverage for you and your family.</p>
+                    <button onclick="openModal()" class="text-accent-600 font-semibold text-sm flex items-center hover:text-accent-700 transition-colors">
+                        Learn More <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
+                    </button>
+                </div>
+
+                <!-- General Insurance -->
+                <div class="group bg-warm-50 rounded-2xl p-8 hover:shadow-xl transition-all duration-300 border border-warm-100 hover:border-accent-200">
+                    <div class="w-14 h-14 bg-accent-100 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="umbrella" class="w-7 h-7 text-accent-700"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-warm-900 mb-3">General Insurance</h3>
+                    <p class="text-warm-600 mb-6 text-sm leading-relaxed">Home, auto, travel, and business protection. Every aspect of your life deserves security.</p>
+                    <button onclick="openModal()" class="text-accent-600 font-semibold text-sm flex items-center hover:text-accent-700 transition-colors">
+                        Learn More <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Me -->
+    <section id="why-me" class="py-20 lg:py-32 bg-accent-50 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-64 h-64 bg-accent-100 rounded-full mix-blend-multiply filter blur-3xl opacity-50"></div>
+        <div class="absolute bottom-0 left-0 w-64 h-64 bg-primary-100 rounded-full mix-blend-multiply filter blur-3xl opacity-50"></div>
+        
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="font-serif text-4xl font-bold text-warm-900 mb-6">Why Trust Me With Your Future?</h2>
+                    <p class="text-warm-600 mb-8 text-lg">Unlike typical insurance agents, I bring medical expertise to financial planning. I understand the health risks you face and the financial implications they carry.</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4 bg-white p-6 rounded-xl shadow-sm border border-accent-100">
+                            <div class="w-12 h-12 bg-accent-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="stethoscope" class="w-6 h-6 text-accent-700"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-warm-900 text-lg mb-1">Medical Authority</h4>
+                                <p class="text-warm-600">Licensed Medical Doctor with real clinical experience understanding health risks.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4 bg-white p-6 rounded-xl shadow-sm border border-accent-100">
+                            <div class="w-12 h-12 bg-accent-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="badge-check" class="w-6 h-6 text-accent-700"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-warm-900 text-lg mb-1">ICEA LION Certified</h4>
+                                <p class="text-warm-600">Authorized agent with access to premium insurance products and competitive rates.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4 bg-white p-6 rounded-xl shadow-sm border border-accent-100">
+                            <div class="w-12 h-12 bg-accent-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="message-circle" class="w-6 h-6 text-accent-700"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-warm-900 text-lg mb-1">Daily Engagement</h4>
+                                <p class="text-warm-600">Active on TikTok providing free health tips, building trust through education.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative">
+                    <div class="bg-white rounded-2xl shadow-xl p-8 border border-warm-100">
+                        <div class="flex items-center space-x-4 mb-6 pb-6 border-b border-warm-100">
+                            <img src="https://static.photos/people/200x200/321" alt="Client" class="w-16 h-16 rounded-full object-cover">
+                            <div>
+                                <p class="font-bold text-warm-900">Recent Success Story</p>
+                                <p class="text-sm text-accent-600">Client secured this month</p>
+                            </div>
+                        </div>
+                        <blockquote class="text-warm-700 italic mb-6 text-lg leading-relaxed">
+                            "Dr. Linda made insurance make sense. As a mother of three, I was worried about education costs. She created a plan that grows with my children. Having a doctor understand my family's health history while planning our financial future was invaluable."
+                        </blockquote>
+                        <div class="flex items-center justify-between">
+                            <div class="flex text-accent-500">
+                                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                            </div>
+                            <span class="text-sm text-warm-500">Endowment Assurance with profit Policy Holder</span>
+                        </div>
+                    </div>
+
+                    <!-- Stats overlay -->
+                    <div class="absolute -bottom-4 -right-4 bg-accent-600 text-white p-6 rounded-xl shadow-lg hidden lg:block">
+                        <p class="text-3xl font-bold">2+</p>
+                        <p class="text-sm opacity-90">Policies Closed<br>This Month</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-warm-900 text-white relative overflow-hidden">
+        <div class="absolute inset-0 hero-pattern opacity-10"></div>
+        <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="font-serif text-4xl md:text-5xl font-bold mb-6">Ready to Secure Your Future?</h2>
+            <p class="text-warm-200 text-xl mb-10 max-w-2xl mx-auto">Join 100+ other prospective clients currently reviewing their personalized insurance plans. Take the first step toward comprehensive protection today.</p>
+            <button onclick="openModal()" class="bg-accent-500 text-white px-10 py-4 rounded-full hover:bg-accent-400 transition-all transform hover:scale-105 font-semibold text-lg shadow-xl shadow-accent-500/20 inline-flex items-center">
+                <span>Schedule Free Consultation</span>
+                <i data-lucide="calendar" class="w-5 h-5 ml-2"></i>
+            </button>
+            <p class="mt-6 text-warm-400 text-sm">No obligation • Personalized assessment • Medical perspective included</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-warm-100 pt-16 pb-8 border-t border-warm-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-12">
+                <div class="col-span-2">
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-8 h-8 bg-accent-600 rounded-full flex items-center justify-center text-white">
+                            <i data-lucide="heart-pulse" class="w-5 h-5"></i>
+                        </div>
+                        <span class="font-serif text-xl font-bold text-warm-900">Dr. Linda Biomdo</span>
+                    </div>
+                    <p class="text-warm-600 mb-4 max-w-sm">Bridging healthcare and financial security. Helping families protect their health and wealth through informed insurance decisions.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-warm-600 hover:text-accent-600 hover:shadow-md transition-all">
+                            <i data-lucide="linkedin" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-warm-600 hover:text-accent-600 hover:shadow-md transition-all">
+                            <i data-lucide="instagram" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-warm-600 hover:text-accent-600 hover:shadow-md transition-all">
+                            <i data-lucide="video" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-warm-900 mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-warm-600">
+                        <li><a href="#about" class="hover:text-accent-600 transition-colors">About Me</a></li>
+                        <li><a href="#services" class="hover:text-accent-600 transition-colors">Services</a></li>
+                        <li><a href="#why-me" class="hover:text-accent-600 transition-colors">Why Choose Me</a></li>
+                        <li><button onclick="openModal()" class="hover:text-accent-600 transition-colors text-left">Contact</button></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-warm-900 mb-4">Contact</h4>
+                    <ul class="space-y-3 text-warm-600">
+                        <li class="flex items-center space-x-2">
+                            <i data-lucide="mail" class="w-4 h-4 text-accent-600"></i>
+                            <span>lindabiomdo@gmail.com</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i data-lucide="building" class="w-4 h-4 text-accent-600"></i>
+                            <span>ICEA LION Group</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i data-lucide="map-pin" class="w-4 h-4 text-accent-600"></i>
+                            <span>Available Nationwide</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-warm-200 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-warm-500 text-sm mb-4 md:mb-0">&copy; 2024 Dr. Linda Biomdo. All rights reserved.</p>
+                <p class="text-warm-500 text-sm">Licensed Insurance Agent • Medical Doctor</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal/Popup Form -->
+    <div id="consultation-modal" class="fixed inset-0 z-[100] hidden overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+            <!-- Background overlay -->
+            <div class="fixed inset-0 bg-warm-900/75 transition-opacity backdrop-blur-sm" aria-hidden="true" onclick="closeModal()"></div>
+
+            <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+
+            <div class="inline-block align-bottom bg-white rounded-2xl text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg w-full modal-enter">
+                <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                    <div class="sm:flex sm:items-start">
+                        <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left w-full">
+                            <div class="flex justify-between items-center mb-6">
+                                <h3 class="text-2xl leading-6 font-serif font-bold text-warm-900" id="modal-title">Free Insurance Consultation</h3>
+                                <button onclick="closeModal()" class="text-warm-400 hover:text-warm-600 transition-colors">
+                                    <i data-lucide="x" class="w-6 h-6"></i>
+                                </button>
+                            </div>
+                            
+                            <p class="text-sm text-warm-600 mb-6">Fill in your details below and I'll contact you within 24 hours to discuss your insurance needs. As a doctor, I'll ensure your health considerations are factored into your financial planning.</p>
+                            
+                            <form id="consultation-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="space-y-4">
+                                <!-- IMPORTANT: Replace YOUR_FORM_ID with your actual Formspree form ID -->
+                                <input type="hidden" name="_subject" value="New Insurance Consultation Request - Dr. Linda Biomdo Website">
+                                <input type="hidden" name="_replyto" value="lindabiomdo@gmail.com">
+                                
+                                <div>
+                                    <label for="name" class="block text-sm font-medium text-warm-700 mb-1">Full Name *</label>
+                                    <input type="text" name="name" id="name" required class="w-full px-4 py-3 rounded-lg border border-warm-300 focus:ring-2 focus:ring-accent-500 focus:border-accent-500 outline-none transition-all bg-warm-50" placeholder="John Doe">
+                                </div>
+
+                                <div>
+                                    <label for="email" class="block text-sm font-medium text-warm-700 mb-1">Email Address *</label>
+                                    <input type="email" name="email" id="email" required class="w-full px-4 py-3 rounded-lg border border-warm-300 focus:ring-2 focus:ring-accent-500 focus:border-accent-500 outline-none transition-all bg-warm-50" placeholder="john@example.com">
+                                </div>
+
+                                <div>
+                                    <label for="phone" class="block text-sm font-medium text-warm-700 mb-1">Phone Number <span class="text-warm-400 text-xs">(Optional)</span></label>
+                                    <input type="tel" name="phone" id="phone" class="w-full px-4 py-3 rounded-lg border border-warm-300 focus:ring-2 focus:ring-accent-500 focus:border-accent-500 outline-none transition-all bg-warm-50" placeholder="+254 XXX XXX XXX">
+                                </div>
+
+                                <div>
+                                    <label for="interest" class="block text-sm font-medium text-warm-700 mb-1">Interested In</label>
+                                    <select name="interest" id="interest" class="w-full px-4 py-3 rounded-lg border border-warm-300 focus:ring-2 focus:ring-accent-500 focus:border-accent-500 outline-none transition-all bg-warm-50">
+                                        <option value="">Select an option...</option>
+                                        <option value="education">Education Insurance</option>
+                                        <option value="life">Life Insurance</option>
+                                        <option value="health">Health Insurance</option>
+                                        <option value="general">General/Other Insurance</option>
+                                        <option value="multiple">Multiple Types</option>
+                                    </select>
+                                </div>
+
+                                <div>
+                                    <label for="message" class="block text-sm font-medium text-warm-700 mb-1">Additional Message <span class="text-warm-400 text-xs">(Optional)</span></label>
+                                    <textarea name="message" id="message" rows="3" class="w-full px-4 py-3 rounded-lg border border-warm-300 focus:ring-2 focus:ring-accent-500 focus:border-accent-500 outline-none transition-all bg-warm-50" placeholder="Tell me about your specific needs..."></textarea>
+                                </div>
+
+                                <div class="pt-2">
+                                    <button type="submit" id="submit-btn" class="w-full bg-accent-600 text-white px-6 py-3.5 rounded-lg hover:bg-accent-700 transition-all font-semibold shadow-lg shadow-accent-600/20 flex items-center justify-center space-x-2">
+                                        <span>Request Consultation</span>
+                                        <i data-lucide="send" class="w-4 h-4"></i>
+                                    </button>
+                                </div>
+                                
+                                <p class="text-xs text-warm-500 text-center mt-4">
+                                    <i data-lucide="lock" class="w-3 h-3 inline mr-1"></i>
+                                    Your information is secure and will never be shared.
+                                </p>
+                            </form>
+
+                            <!-- Success Message (Hidden by default) -->
+                            <div id="success-message" class="hidden text-center py-8">
+                                <div class="w-16 h-16 bg-accent-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <i data-lucide="check" class="w-8 h-8 text-accent-600"></i>
+                                </div>
+                                <h4 class="text-xl font-bold text-warm-900 mb-2">Thank You!</h4>
+                                <p class="text-warm-600 mb-6">Your request has been sent successfully. I'll contact you within 24 hours.</p>
+                                <button onclick="closeModal()" class="bg-warm-100 text-warm-700 px-6 py-2 rounded-lg hover:bg-warm-200 transition-colors font-medium">
+                                    Close
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </section>
 
-  <!-- PHILOSOPHY (FROM SITE 1) -->
-  <section class="py-20 bg-parchment">
-    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-      <div>
-        <span class="text-accent font-medium tracking-wider">OUR PHILOSOPHY</span>
-        <h2 class="text-4xl font-serif font-bold mt-2 mb-6">
-          Health is not urgency. It’s continuity.
-        </h2>
-        <p class="text-lg text-secondary/70">
-          This platform exists to help people think beyond today — emotionally, medically, and practically.
-        </p>
-      </div>
-
-      <img
-        src="http://static.photos/wellness/800x1000/23"
-        class="rounded-2xl shadow-lg"
-        alt="Philosophy image"
-      />
-    </div>
-  </section>
-
-  <!-- PODCAST GRID (STYLE FROM SITE 1, TITLE FROM SITE 2) -->
-  <section id="podcast" class="py-20 px-6 max-w-6xl mx-auto">
-    <h2 class="text-4xl font-serif font-bold text-center mb-12">
-      The Healing Horizons Podcast
-    </h2>
-
-    <div class="grid md:grid-cols-3 gap-6">
-      <div class="bg-white rounded-xl shadow overflow-hidden">
-        <img src="http://static.photos/medical/640x360/7" />
-        <div class="p-6">
-          <h3 class="font-serif font-bold mb-2">Grief and Growth</h3>
-          <p class="text-sm text-secondary/70 mb-4">
-            Understanding loss as part of the human experience.
-          </p>
-          <a href="#" class="text-accent inline-flex items-center">
-            Listen <i data-feather="arrow-right" class="ml-1 w-4 h-4"></i>
-          </a>
-        </div>
-      </div>
-
-      <div class="bg-white rounded-xl shadow overflow-hidden">
-        <img src="http://static.photos/people/640x360/15" />
-        <div class="p-6">
-          <h3 class="font-serif font-bold mb-2">Parenting Beyond Presence</h3>
-          <p class="text-sm text-secondary/70 mb-4">
-            Building security that outlives uncertainty.
-          </p>
-          <a href="#" class="text-accent inline-flex items-center">
-            Listen <i data-feather="arrow-right" class="ml-1 w-4 h-4"></i>
-          </a>
-        </div>
-      </div>
-
-      <div class="bg-white rounded-xl shadow overflow-hidden">
-        <img src="http://static.photos/office/640x360/3" />
-        <div class="p-6">
-          <h3 class="font-serif font-bold mb-2">Preparedness & Peace</h3>
-          <p class="text-sm text-secondary/70 mb-4">
-            Why planning reduces anxiety.
-          </p>
-          <a href="#" class="text-accent inline-flex items-center">
-            Listen <i data-feather="arrow-right" class="ml-1 w-4 h-4"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- NEWSLETTER SIGNUP (FROM SITE 1) -->
-  <section class="py-20 bg-primary text-center">
-    <h2 class="text-3xl font-serif mb-4">Join the Circle</h2>
-    <p class="mb-6 text-secondary/70">
-      Thoughtful health, mental wellness, and legacy conversations — delivered gently.
-    </p>
-
-    <form class="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
-      <input type="email" placeholder="Your email" class="px-6 py-3 rounded-full border" />
-      <button class="bg-secondary text-white px-8 py-3 rounded-full">
-        Subscribe
-      </button>
-    </form>
-  </section>
-
-  <!-- FOOTER SUMMARY (INSPIRED BY SITE 2) -->
-  <custom-footer></custom-footer>
-
-  <script>
-    feather.replace();
-  </script>
-
+    <script src="script.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
 </body>
 </html>
